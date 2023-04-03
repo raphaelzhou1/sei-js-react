@@ -5,32 +5,35 @@ import { WalletSelectModalProps } from './types';
 import { styles } from './styles';
 import { SeiWalletContext } from '../../provider';
 
-// TODO: Refactor this to a separate assets repo
-// Wallet logos
-import coin98Logo from '../../assets/coin98.png';
-import falconLogo from '../../assets/falcon.png';
-import keplrLogo from '../../assets/keplr.png';
-import leapLogo from '../../assets/leap.png';
-import defaultIcon from '../../assets/default.svg';
-const getWalletIcon = (wallet: WalletWindowKey) => {
-  if (wallet === 'coin98') {
-    return coin98Logo;
-  } else if (wallet === 'falcon') {
-    return falconLogo;
-  } else if (wallet === 'keplr') {
-    return keplrLogo;
-  } else if (wallet === 'leap') {
-    return leapLogo;
-  } else {
-    return defaultIcon;
-  }
-};
 
 const WalletSelectModal = ({
   setShowConnectModal,
   inputWallets,
   walletSelectStyles,
 }: WalletSelectModalProps) => {
+  const coin98_png_1 = __importDefault(require("react/dist/lib/assets/coin98.png"));
+  const falcon_png_1 = __importDefault(require("react/dist/lib/assets/falcon.png"));
+  const keplr_png_1 = __importDefault(require("react/dist/lib/assets/keplr.png"));
+  const leap_png_1 = __importDefault(require("react/dist/lib/assets/leap.png"));
+  const default_svg_1 = __importDefault(require("react/dist/lib/assets/default.svg"));
+  const getWalletIcon = (wallet) => {
+    if (wallet === 'coin98') {
+      return coin98_png_1.default;
+    }
+    else if (wallet === 'falcon') {
+      return falcon_png_1.default;
+    }
+    else if (wallet === 'keplr') {
+      return keplr_png_1.default;
+    }
+    else if (wallet === 'leap') {
+      return leap_png_1.default;
+    }
+    else {
+      return default_svg_1.default;
+    }
+  };
+
   const {
     installedWallets,
     connectedWallet,
